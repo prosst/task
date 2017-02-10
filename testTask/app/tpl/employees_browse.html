@@ -1,0 +1,54 @@
+﻿<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <span>Employees</span>
+    </div>
+
+    <a class="btn btn-info btn-sm" data-ui-sref="employees.Create">Add new employee</a>
+
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped b-t b-light" >
+                <thead>
+                    <tr style="cursor: pointer;">
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Job title
+                        </th>
+                        <th>
+                            Employment date
+                        </th>
+                        <th>
+                            Rate
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in items track by item.Id">
+                        <td>
+                            {{item.FirstName}} {{item.LastName}} 
+                        </td>
+                        <td>
+                            {{item.JobTitle}}
+                        </td>
+                        <td>
+                            {{item.EmploymentDate}}
+                        </td>
+                        <td>
+                            {{item.Rate}}$
+                        </td>
+                        <td>
+                            <a href="" data-ng-click="removing(item.Id, $event)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

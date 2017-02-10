@@ -1,0 +1,62 @@
+﻿<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">Создание нового пользователя</h1>
+</div>
+
+
+<div class="wrapper-md">
+    <form name="form" ng-submit="submit(form.$valid)" class="form-validation" novalidate>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">First Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control col-sm-6" ng-model="item.FirstName" name="Name" data-ui-focus="true" required>
+                    <div ng-show="form.$submitted || form.Name.$touched">
+                        <small ng-show="form.Name.$error.required" class="text-danger">First Name required</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Last Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control col-sm-6" data-ng-model="item.LastName" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Employment Date</label>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="date" ng-model="item.EmploymentDate" required />
+                        <div class="input-group-btn">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle btn btn-default btn-block startdate-button" data-toggle="dropdown">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <datetimepicker data-ng-model="item.EmploymentDate" data-datetimepicker-config="startDateOptions" />
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Rate</label>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" data-ng-model="item.Rate" required >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Job Title</label>
+                <div class="col-sm-4">
+                    <select class="form-control" ng-options="value.Name as value.Name for value in data.JobTitles" data-ng-model="item.JobTitle" required ></select>
+                </div>
+            </div>
+            <div class="row">
+                <footer class="panel-footer text-center bg-light lter">
+                    <button class="btn btn-default" data-ng-click="closePage($event)">Back</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </footer>
+            </div>
+        </div>
+    </form>
+</div>
